@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">item id</th>
+            <th scope="col">name</th>
+            <th scope="col">discription</th>
+            <th scope="col">quantity</th>
+            <th scope="col">category</th>
+            <th scope="col">Price</th>
+            <th scope="col">update</th>
+            <th scope="col">delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for i in items %}
+          <tr>
+            <td>{{i[0]}}</td>
+            <td>{{i[1]}}</td>
+            <td>{{i[2]}}</td>
+            <td>{{i[3]}}</td>
+            <td>{{i[4]}}</td>
+            <td>{{i[5]}}</td>
+            <td><a href="{{url_for('updateproducts',itemid=i[0])}}">Update</a></td>
+            <td><a href="{{url_for('deleteproducts',itemid=i[0])}}"></a>Delete</td>
+          </tr>
+          {% endfor %}
+      </table>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!-- {% extends 'home1.html' %}
+{% block content %}
+<a href="{{url_for('home')}}"><button class="button-52">Go to home</button></a>
+<div class="container">
+    <div class="row">
+        {%if items!='empty' %}
+            {% for i in items %}
+                <form method="POST" action="">
+                    <div class="col-12 col-md-3" ><br>
+                        <div class="carding p=3">
+                            <img src="{{url_for('static',filename=i+'.jpg')}}" height="100" width="100" />
+                            <br>
+                            <h6>Name:{{items[i][0]}}</h6>
+                            <b>Quantity</b>
+                            <p class="quantity mt-1"> 
+                            <input class="form-select" value="{{items[i][1]}}" name="qty" readonly/>
+                            </p>
+                            <div class="d-flex flex-row">
+                            <h6>Price <i class="fa fa-inr" aria-hidden="true">{{items[i][2]}} </i></h6>
+                            </div>
+                            <div class="d-flex flex-row">
+                            <button class="button-52" type="submit">Buy Now</button>&nbsp;&nbsp;
+                            <a class="button-522" href="{{url_for('rem',item=i)}}">delete</a>
+                            </div>
+                        </div>
+                    </div>
+                </form>  
+                           
+            {% endfor %}
+        {% endif %}
+        
+    </div>
+</div> <br><br>
+<center>
+</center>
+<!-- {% endblock %} -- -->
+
+{%extends 'homepage.htnl'}
+{% block element %}
+{block content %}
+<h2>Your Cart</h2>
+<table>
+    <thead>
+        <tr>
+            <th>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Categoey</th>
+                <th>price</th>
+                <th>Total</th>
+                <th>quantity</th>
+            </th>
+
+        </tr>
+    </thead>
+    {% for key,value in items.items() %}
+    <tr>
+        <td><img src="{{url_for('static',filename=value[3])}}" alt="{{value[o]}}" height="100px"></td>
+        <td>{{ value[4}}</td>
+        <td>{{ value[1}}</td>
+        <td>{{ value[2}}</td>
+        <td>₹{{value[1] 1 int * value[2]}}</td>
+    </tr>
+    {% endfor %}
